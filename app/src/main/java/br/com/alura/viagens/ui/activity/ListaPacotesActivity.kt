@@ -22,6 +22,6 @@ class ListaPacotesActivity : AppCompatActivity() {
     private fun configurarLista() {
         val dao = PacoteDAO()
         val pacotes = dao.lista()
-        lv_lista_pacotes.adapter = ListaPacotesAdapter(pacotes, applicationContext)
+        lvListaPacotes.adapter = ListaPacotesAdapter(pacotes, applicationContext)
     }
 }

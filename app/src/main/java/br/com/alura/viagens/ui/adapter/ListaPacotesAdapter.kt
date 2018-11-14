@@ -11,8 +11,6 @@ import br.com.alura.viagens.util.DiaUtil
 import br.com.alura.viagens.util.MoedaUtil
 import br.com.alura.viagens.util.ResourceUtil
 import kotlinx.android.synthetic.main.item_pacotes.view.*
-import java.text.DecimalFormat
-import java.util.*
 
 class ListaPacotesAdapter(
     val listaPacotes: List<Pacote>,
@@ -43,7 +41,7 @@ class ListaPacotesAdapter(
     }
 
     private fun setaDias(pacote: Pacote, view: View) {
-        view.tvDia.text = DiaUtil.formataParaTexto(pacote.dias)
+        view.tvDias.text = DiaUtil.formataParaTexto(pacote.dias)
     }
 
     private fun setaImagem(pacote: Pacote, view: View) {
