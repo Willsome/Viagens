@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import br.com.alura.viagens.R
 import br.com.alura.viagens.model.Pacote
+import br.com.alura.viagens.util.DiaUtil
+import br.com.alura.viagens.util.MoedaUtil
+import br.com.alura.viagens.util.ResourceUtil
 import kotlinx.android.synthetic.main.item_pacotes.view.*
 
 class ListaPacotesAdapter(
@@ -15,25 +18,35 @@ class ListaPacotesAdapter(
 
 ) : BaseAdapter() {
 
-
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
         val view = LayoutInflater.from(context).inflate(R.layout.item_pacotes, parent, false)
 
         val pacote = getItem(position)
 
-        val idDrawable = context.resources.getIdentifier(
-            pacote.imagem,
-            "drawable",
-            context.packageName
-        )
-        val drawable = context.resources.getDrawable(idDrawable)
-        view.ivItemPacotes.setImageDrawable(drawable)
-
-        view.tvDia.text = "${pacote.dias} dias"
-        view.tvPreco.text = "${pacote.preco}"
+        setaLocal(pacote, view)
+        setaImagem(pacote, view)
+        setaDias(pacote, view)
+        setaPreco(pacote, view)
 
         return view
+    }
+
+    private fun setaLocal(pacote: Pacote, view: View) {
+        view.tvLocal.text = pacote.local
+    }
+
+    private fun setaPreco(pacote: Pacote, view: View) {
+        view.tvPreco.text = MoedaUtil.formataParaBrasileiro(pacote.preco)
+    }
+
+    private fun setaDias(pacote: Pacote, view: View) {
+        view.tvDias.text = DiaUtil.formataParaTexto(pacote.dias)
+    }
+
+    private fun setaImagem(pacote: Pacote, view: View) {
+        val drawable = ResourceUtil.devolveDrawable(context, pacote.imagem)
+        view.ivItemPacotes.setImageDrawable(drawable)
     }
 
     override fun getItem(position: Int): Pacote {
