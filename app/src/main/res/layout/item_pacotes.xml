@@ -19,6 +19,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+            <ImageView
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/ivItemPacotes"
+                    android:scaleType="centerCrop"
+                    tools:src="@sample/pacotes.json/pacotes/imagem"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"/>
             <TextView
                     android:layout_margin="8dp"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -45,19 +56,8 @@
                     android:textColor="@android:color/white"
                     tools:text="@sample/pacotes.json/pacotes/local"
                     android:layout_width="wrap_content"
-                    android:id="@+id/tvEstado"
+                    android:id="@+id/tvLocal"
                     android:layout_height="wrap_content"/>
-            <ImageView
-                    app:layout_constraintVertical_bias="0.0"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:id="@+id/ivItemPacotes"
-                    android:scaleType="centerCrop"
-                    tools:src="@sample/pacotes.json/pacotes/imagem"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"/>
             <TextView
                     app:layout_constraintTop_toBottomOf="@id/tvDia"
                     tools:text="@sample/pacotes.json/pacotes/preco"
